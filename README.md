@@ -3,7 +3,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |nickname|string|null: false|
 |email|text|null: false|
 
@@ -16,9 +15,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|owner_user_id|integer|null: false, foreign_key: true|
-|menber_id|integer|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+|owner_user_id|references|null: false, foreign_key: true|
+|menber_id|references|null: false, foreign_key: true|
 
 ### Association
 - ### Association
@@ -30,9 +29,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|message_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-|send_menber_id|integer|null: false, foreign_key: true|
+|message_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |content|text|null: false|
 |image|text|
 
@@ -46,8 +45,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
