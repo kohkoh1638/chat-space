@@ -15,14 +15,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|owner_user_id|references|null: false, foreign_key: true|
-|menber_id|references|null: false, foreign_key: true|
+|name|references|null: false, foreign_key: true|
 
 ### Association
-- ### Association
-- belongs_to :user
-- belongs_to :message
-- belongs_to :member
+- has_many :users, through :members
+- has_many :messages
+- has_many :members
 
 ## messageテーブル
 
@@ -34,7 +32,6 @@
 |image|text|
 
 ### Association
-- ### Association
 - belongs_to :user
 - belongs_to :group
 
@@ -46,5 +43,5 @@
 |group_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
 - belongs_to :user
+- belongs_to :group
