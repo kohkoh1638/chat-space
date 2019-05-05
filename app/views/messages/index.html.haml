@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "UTF-8"}/
+    %link{:href => "style.scss", :rel => "stylesheet", :type => "text/scss"}/
+    %title ChatSpace
+  %body
+    .wrapper
+      .chat-side
+        .side-header
+          %p.side-header__user-name kohkoh
+        .groups
+          %p.group__group-name aaa
+      .chat-main
+
+        .main-header
+          %p aaa
+          .main-header__edit-btn Edit
+        .messages
+          %p aaa
+        .form
+          %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/groups/987/messages", :enctype => "multipart/form-data", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "aJ74PAng1Ygtd6J60NhNjqPyMMqDvwCSPsOObACSCjwEtLFeJbFhV9q1qQULWwwyPuDtpJq9T4O/prKID7oSZw=="}/
+            .input-box
+              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+              %label.image-label{:for => "message_image"}
+                %i.fa.fa-image
+                %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
+            %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
