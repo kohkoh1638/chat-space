@@ -13,6 +13,7 @@
         .groups
           %p.group__group-name aaa
       .chat-main
+      
         .main-header
           .current-group{"data-group_id" => "987"}
             %h2.current-group__name aaa
@@ -20,6 +21,14 @@
               %li.member-list__member kohkoh
           %a{:href => "/groups/987/edit"}
             .main-header__edit-btn Edit
+
+        .messages
+          .message{"data-message_id" => "2354"}
+            .upper-info
+              %p.upper-info__user kohkoh
+              %p.upper-info__date 2019/05/04(Sat) 11:59:22
+            %p.message__text aaa
+
         .form
           %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/groups/987/messages", :enctype => "multipart/form-data", :method => "post"}
             %input{:name => "utf8", :type => "hidden", :value => "✓"}/
