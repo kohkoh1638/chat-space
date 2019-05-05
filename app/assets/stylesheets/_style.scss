@@ -18,6 +18,27 @@
   font-weight: bold;
 }
 
+.user-menu {
+  display: flex;
+}
+
+.user-menu li {
+  margin-left: 0.3rem;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.chat-side a {
+  color: white;
+}
+
 .groups {
   height: calc(100vh - 100px);
   width: 300px;

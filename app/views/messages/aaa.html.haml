@@ -1,6 +1,9 @@
-.messages
-  .message{"data-message_id" => "2354"}
-    .upper-info
-      %p.upper-info__user kohkoh
-      %p.upper-info__date 2019/05/04(Sat) 11:59:22
-    %p.message__text aaa
+        .side-header
+          %p.side-header__user-name kohkoh
+          %ul.user-menu
+            %li.user-menu__edit-user
+              %a{:href => "/groups/new"}
+                %i.fa.fa-edit
+            %li.user-menu__new-group
+              %a{:href => "/users/198/edit"}
+                %i.fa.fa-cog

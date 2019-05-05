@@ -8,12 +8,18 @@
   %body
     .wrapper
       .chat-side
+
         .side-header
           %p.side-header__user-name kohkoh
-        .groups
-          %p.group__group-name aaa
-      .chat-main
-      
+          %ul.user-menu
+            %li.user-menu__edit-user
+              %a{:href => "/groups/new"}
+                %i.fa.fa-edit
+            %li.user-menu__new-group
+              %a{:href => "/users/198/edit"}
+                %i.fa.fa-cog
+
+
         .main-header
           .current-group{"data-group_id" => "987"}
             %h2.current-group__name aaa
