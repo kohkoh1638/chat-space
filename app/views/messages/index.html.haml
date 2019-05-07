@@ -13,14 +13,14 @@
           %p.side-header__user-name kohkoh
           %ul.user-menu
             %li.user-menu__edit-user
-              %a{:href => "/groups/new"}
+              %a{:href => "/"}
                 %i.fa.fa-edit
             %li.user-menu__new-group
-              %a{:href => "/users/198/edit"}
+              %a{:href => "/"}
                 %i.fa.fa-cog
 
         .groups
-          %a{:href => "/groups/987/messages"}
+          %a{:href => "/"}
             .group
               %p.group__group-name aaa
               %p.group__latest-message aaa
@@ -31,7 +31,7 @@
             %h2.current-group__name aaa
             %ul.member-list
               %li.member-list__member kohkoh
-          %a{:href => "/groups/987/edit"}
+          %a{:href => "/"}
             .main-header__edit-btn Edit
 
         .messages
@@ -42,9 +42,9 @@
             %p.message__text aaa
 
         .form
-          %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/groups/987/messages", :enctype => "multipart/form-data", :method => "post"}
+          %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/", :enctype => "multipart/form-data", :method => "post"}
             %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input{:name => "authenticity_token", :type => "hidden", :value => "aJ74PAng1Ygtd6J60NhNjqPyMMqDvwCSPsOObACSCjwEtLFeJbFhV9q1qQULWwwyPuDtpJq9T4O/prKID7oSZw=="}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "a"}/
             .input-box
               %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
               %label.image-label{:for => "message_image"}
