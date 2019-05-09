@@ -3,14 +3,14 @@
     .side-header
       %p.side-header__user-name kohkoh
       %ul.user-menu
-      %li.user-menu__edit-user
-        = link_to , "/", method: :get
-          %i.fa.fa-edit
-          %li.user-menu__new-group
-            = link_to , "/", method: :get
-              %i.fa.fa-cog
+        %li.user-menu__edit-user
+          %a{:href => "/groups/new"}
+            %i.fa.fa-edit
+        %li.user-menu__new-group
+          %a{:href => "/users/edit"}
+            %i.fa.fa-cog
     .groups
-      = link_to , "/", method: :get
+      %a{:href => "/groups/messages"}
         .group
           %p.group__group-name aaa
           %p.group__latest-message aaa
@@ -19,15 +19,15 @@
       .current-group{data: { group_id: "987"}}
         %h2.current-group__name aaa
         %ul.member-list
-        %li.member-list__member kohkoh
-        = link_to , "/", method: :get
+          %li.member-list__member kohkoh
+      %a{:href => "/groups/edit"}
         .main-header__edit-btn Edit
     .messages
       .message{data: { message_id: "2354"}}
         .upper-info
           %p.upper-info__user kohkoh
           %p.upper-info__date 2019/05/04(Sat) 11:59:22
-          %p.message__text aaa
+        %p.message__text aaa
     .form
       %form#new_message.new-message{accept: { charset: "UTF-8"}, action: "/", enctype: "multipart/form-data", method: "post"}
         %input{name: "utf8", type: "hidden", value: "✓"}/
@@ -35,6 +35,6 @@
         .input-box
           %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
           %label.image-label{for: "message_image"}
-          %i.fa.fa-image
-          %input#message_image.image-label__input{name: "message[image]", type: "file"}/
-          %input.new-message__submit-btn{data: { disable: { with: "Send" }}, name: "commit", type: "submit", value: "Send"}/
+            %i.fa.fa-image
+            %input#message_image.image-label__input{name: "message[image]", type: "file"}/
+        %input.new-message__submit-btn{data: { disable: { with: "Send" }}, name: "commit", type: "submit", value: "Send"}/
