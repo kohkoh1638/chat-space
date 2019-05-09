@@ -4,22 +4,22 @@
       %p.side-header__user-name kohkoh
       %ul.user-menu
       %li.user-menu__edit-user
-          %i.fa.fa-edit
-          %li.user-menu__new-group
-            = link_to , "/", method: :get
-              %i.fa.fa-cog
+      %i.fa.fa-edit
+      %li.user-menu__new-group
+      /= link_to , "/", method: :get
+      %i.fa.fa-cog
     .groups
-      = link_to , "/", method: :get
-        .group
-          %p.group__group-name aaa
-          %p.group__latest-message aaa
+      /= link_to , "/", method: :get
+      .group
+        %p.group__group-name aaa
+        %p.group__latest-message aaa
   .chat-main
     .main-header
       .current-group{data: { group_id: "987"}}
         %h2.current-group__name aaa
         %ul.member-list
         %li.member-list__member kohkoh
-        = link_to , "/", method: :get
+        /= link_to , "/", method: :get
         .main-header__edit-btn Edit
     .messages
       .message{data: { message_id: "2354"}}
