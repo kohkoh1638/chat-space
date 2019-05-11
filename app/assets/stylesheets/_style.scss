@@ -118,10 +118,10 @@ a {
   }
 }
 
-.upper-info {
+.upper-message {
   display: flex;
   margin-bottom: 10px;
-  &__user {
+  &__user-name {
      font-size: 16px;
      font-weight: bold;
   }
@@ -133,56 +133,46 @@ a {
   }
 }
 
-.form {
+
+.form{
   height: 90px;
   padding: 20px 40px;
   background-color: #ddd;
-}
 
-.new-message {
-  display: flex;
-  &__submit-btn {
-     width: 100px;
-     height: 50px;
-     padding: 0 30px;
-     margin-left: 15px;
-     background-color: #38aef0;
-     color: white;
-     cursor: pointer;
+  .form__message{
+    height: 50px;
+    width: calc(100% - 160px);
+    background-color: white;
+    color: $kuro;
+    float:left;
+    border:none;
+  }
+  .form__mask{
+    height: 50px;
+    background-color: white;
+    padding-right: 20px;
+    float:left;
+    .icon{
+      color:$kuro;
+      width: 5%;
+      line-height: 50px;
+    }
+    .hidden{
+      display:none;
+    }
+  }
+  .form__submit{
+    background-color: #38aef0;
+    color: white;
+    text-align: center;
+    height: 50px;
+    padding: 0 30px;
+    margin: 0 0 20px 15px;
+    float:left;
+    border: none;
   }
 }
 
-.input-box {
-  position: relative;
-  width: 100%;
-  &__text {
-     height: 50px;
-     width: 100%;
-     padding: 0 40px 0 10px;
-     color: kuro;
-     border-style: none;
-  }
-}
-
-.image-label {
-  font-size: 1.3rem;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  &__input {
-     display: none;
-  }
-}
-
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 input, textarea, select {
   *font-size: 100%;

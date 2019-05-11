@@ -23,12 +23,9 @@
       %a{:href => "/groups/edit"}
         .main-header__edit-btn Edit
     .messages
-      .message{data: { message_id: "2354"}}
-        .upper-info
-          %p.upper-info__user kohkoh
-          %p.upper-info__date 2019/05/04(Sat) 11:59:22
-        %p.message__text aaa
+      = render @messages
     .form
+      .new-message
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__mask
