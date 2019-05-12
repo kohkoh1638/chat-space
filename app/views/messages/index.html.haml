@@ -1,15 +1,16 @@
 .wrapper
   .chat-side
     .side-header
-      %p.side-header__user-name
-      = current_user.name
-      %ul.user-menu
-        %li.user-menu__new-group
-          = link_to new_group_path do
-            %i.fa.fa-edit
-        %li.user-menu__edit-user
-          = link_to edit_user_path do
-            %i.fa.fa-cog
+      .side-header-box
+        .side-header__user-name
+          = current_user.name
+        %ul.user-menu
+          %li.user-menu__new-group
+            = link_to new_group_path do
+              %i.fa.fa-edit
+          %li.user-menu__edit-user
+            = link_to edit_user_path do
+              %i.fa.fa-cog
     .groups
       .group
         - current_user.groups.each do |group|
@@ -24,7 +25,7 @@
         %h2.current-group__name
         = @group.name
         %ul.member-list
-          %li.member-list__member  MEMBER: 
+          %li.member-list__member  Member: 
           - @group.users.each do |user|
             = user.name
       .main-header__edit-btn 

@@ -19,16 +19,22 @@ $kuro: #434a54;
 .side-header {
   background-color: #253141;
   height: $takasa;
-  display: flex;
-  align-items: center;
   padding: 0 20px;
-  justify-content: space-between;
   width: $haba;
   font-weight: bold;
+}
+.side-header-box {
+  padding-top: 30px;
+  width: 250px;
+
+}
+.side-header__user-name {
+  float: left;
 }
 
 .user-menu {
   display: flex;
+  float: right;
   li {
     margin-left: 0.3rem;
   }
@@ -82,6 +88,7 @@ $kuro: #434a54;
      margin-top: 30px;
      border: solid 1px #38aef0;
      color: #38aef0;
+     a:visited { color: #38aef0; }
   }
 }
 
