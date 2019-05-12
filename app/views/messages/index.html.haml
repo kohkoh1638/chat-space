@@ -1,40 +1,43 @@
 .wrapper
   .chat-side
     .side-header
-      %p.side-header__user-name kohkoh
-      %ul.user-menu
-        %li.user-menu__edit-user
-          %a{:href => "/groups/new"}
-            %i.fa.fa-edit
-        %li.user-menu__new-group
-          %a{:href => "/users/edit"}
-            %i.fa.fa-cog
+      .side-header-box
+        .side-header__user-name
+          = current_user.name
+        %ul.user-menu
+          %li.user-menu__new-group
+            = link_to new_group_path do
+              %i.fa.fa-edit
+          %li.user-menu__edit-user
+            = link_to edit_user_path do
+              %i.fa.fa-cog
     .groups
-      %a{:href => "/groups/messages"}
-        .group
-          %p.group__group-name aaa
-          %p.group__latest-message aaa
+      .group
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .group__name
+              = group.name
+            .group__message
+              = group.show_last_message
   .chat-main
     .main-header
-      .current-group{data: { group_id: "987"}}
-        %h2.current-group__name aaa
+      .current-group
+        %h2.current-group__name
+        = @group.name
         %ul.member-list
-          %li.member-list__member kohkoh
-      %a{:href => "/groups/edit"}
-        .main-header__edit-btn Edit
+          %li.member-list__member  Member: 
+          - @group.users.each do |user|
+            = user.name
+      .main-header__edit-btn 
+        = link_to "Edit", edit_group_path(@group)
     .messages
-      .message{data: { message_id: "2354"}}
-        .upper-info
-          %p.upper-info__user kohkoh
-          %p.upper-info__date 2019/05/04(Sat) 11:59:22
-        %p.message__text aaa
+      = render @messages
     .form
-      %form#new_message.new-message{accept: { charset: "UTF-8"}, action: "/", enctype: "multipart/form-data", method: "post"}
-        %input{name: "utf8", type: "hidden", value: "✓"}/
-        %input{name: "authenticity_token", type: "hidden", value: "a"}/
-        .input-box
-          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
-          %label.image-label{for: "message_image"}
-            %i.fa.fa-image
-            %input#message_image.image-label__input{name: "message[image]", type: "file"}/
-        %input.new-message__submit-btn{data: { disable: { with: "Send" }}, name: "commit", type: "submit", value: "Send"}/
+      .new-message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

@@ -26,6 +26,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
 
   def group_params
