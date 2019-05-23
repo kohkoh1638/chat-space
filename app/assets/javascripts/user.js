@@ -34,7 +34,7 @@ function selectUserName(user_id, user_name) {
 
     $.ajax({
       type: 'GET',
-      url: '/users/index',
+      url: '/users',
       data: { keyword: input },
       dataType: 'json'
     })
