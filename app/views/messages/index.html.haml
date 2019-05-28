@@ -22,7 +22,7 @@
   .chat-main
     .main-header
       .current-group
-        %h2.current-group__name
+        %h2.current-group__name{data: {group: @group.id}}
         = @group.name
         %ul.member-list
           %li.member-list__member  Member: 

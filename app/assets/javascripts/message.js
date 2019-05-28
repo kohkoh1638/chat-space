@@ -1,8 +1,9 @@
 $(function(){
   function buildHTML(message){
-    image = ( message.image ) ? `<img class= "lower-message__image" src=${message.image} >` : "";
+    var content = message.content ? `${ message.content }` : "";
+    var image = ( message.image.url ) ? `<img class= "lower-message__image" src=${message.image.url} >` : "";
     var html =
-    `<div class="message" data-message-id= "${message.id}">
+    `<div class="message" data-id="${message.id}">
       <div class="upper-message">
         <div class="upper-message__user-name">
           ${message.user_name}
@@ -13,7 +14,7 @@ $(function(){
       </div>
       <div class="lower-meesage">
         <p class="lower-message__content">
-          ${message.content}
+          ${content}
         </p>
       </div>
       ${image}
@@ -49,4 +50,30 @@ $(function(){
         alert('error');
        })
    })
-});
+
+      var reloadMessages = setInterval(function () {
+        var last_message_id = $('.message').last().data('id');
+        var group_id = $('.current-group__name').data('group');
+        if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+          $.ajax({
+            url: `/groups/${group_id}/api/messages`,
+            type: "get",
+            data: { id: last_message_id },
+            dataType: "json"
+          })
+            .done(function (data) {
+              data.forEach(function (message) {
+                var html = buildHTML(message);
+                $('.messages').append(html);
+                $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight }, 'fast');
+              });
+            })
+            .fail(function () {
+              alert('自動更新に失敗しました');
+            });
+        } else {
+          clearInterval(reloadMessages);
+        }
+      }, 5000);
+    
+    });
