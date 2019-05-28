@@ -26,7 +26,7 @@
         .chat-group-user
           %input{type: "hidden", value: current_user.id, name: "group[user_ids][]"}
           = content_tag(:p, current_user.name)
-          = render @group.users
+          = render @users
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
