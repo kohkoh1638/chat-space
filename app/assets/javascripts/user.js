@@ -10,7 +10,7 @@ $(function() {
     })
 
 var search_list = $("#user-search-result");
-var select_list = $("#chat-group-users");
+var select_list = $(".chat-group-users.js-add-user");
 
 function appendUserName(user) {
    var html = `<div class="chat-group-user clearfix addmember">

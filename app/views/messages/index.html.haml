@@ -26,8 +26,8 @@
         = @group.name
         %ul.member-list
           %li.member-list__member  Member: 
-          - @group.users.each do |user|
-            = user.name
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
       .main-header__edit-btn 
         = link_to "Edit", edit_group_path(@group)
     .messages
