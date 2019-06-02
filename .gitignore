@@ -23,3 +23,7 @@ public/uploads/message/image/12/git-logo.png
 public/uploads/message/image/13/git-logo.png
 
 config/secrets.yml
+
+public/uploads/message/image/151/git-logo.png
+
+*.png
