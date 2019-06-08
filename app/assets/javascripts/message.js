@@ -42,10 +42,13 @@ $(function(){
       .done(function(data){
         var html = buildHTML(data);
         $('.messages').append(html);
-        ScrollToNewMessage();
-        $('.form__message').val('');
+        $('#new_message')[0].reset();
+        //ScrollToNewMessage();
+        //$('.form__message').val('');
         $(".form__submit").prop('disabled', false);
-      })
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      $('.hidden').val('');
+     })
       .fail(function(){
         alert('error');
        })
