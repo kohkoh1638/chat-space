@@ -13,7 +13,7 @@ var search_list = $("#user-search-result");
 var select_list = $(".chat-group-users.js-add-user");
 
 function appendUserName(user) {
-   var html = `<div class="chat-group-user clearfix addmember">
+   var html = `<div class="chat-group-user clearfix js-chat-member">
                 <p class="chat-group-user__name">${ user.name }</p>
                 <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }"  data-user-name="${ user.name }">追加</a>
               </div>`
